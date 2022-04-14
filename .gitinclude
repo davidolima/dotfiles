@@ -1,0 +1,4 @@
+.config/*
+.doom.d/*
+.bash_profile
+.alacritty.yml

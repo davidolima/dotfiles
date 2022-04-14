@@ -32,24 +32,15 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
+;;(setq doom-theme 'doom-dark+)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+;;(setq display-line-numbers-type t)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
-
-;; Aparencia
-
-(doom/set-frame-opacity 98)
-(tool-bar-mode 0)
-(scroll-bar-mode 0)
-(column-number-mode 1)
-(show-paren-mode 1)
-(setq-default cursor-type 'bar)
 
 ;; Funcionalidade
 (cua-mode 1)
@@ -57,6 +48,18 @@
 ;; (ido-mode 1)
 (dynamic-completion-mode 1)
 ;; (ido-everywhere 1)
+
+;; Aparencia
+(setq doom-theme 'doom-dark+)
+(setq doom-font (font-spec :family "Hack" :size 15 :weight 'regular))
+(setq display-line-numbers-type t)
+(doom/set-frame-opacity 98)
+(tool-bar-mode 0)
+(scroll-bar-mode 0)
+(column-number-mode 1)
+(show-paren-mode 1)
+(setq-default cursor-type 'bar)
+
 
 ;; Atalhos de Teclado / Keybindings
 (global-set-key (kbd "C-;") 'comment-region)
@@ -108,6 +111,15 @@
 (global-set-key (kbd "C-\"")        'mc/skip-to-next-like-this)
 (global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
 
+;; lsp-mode
+(setq gc-cons-threshold 100000000)
+(use-package! lsp-mode
+  :config
+  (add-hook 'c++-mode-hook #'lsp)
+  (setq lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
+
+  (add-hook 'python-mode-hook #'lsp)
+  (add-hook 'rust-mode-hook #'lsp))
 
 (add-hook 'simpc-mode-hook
            (lambda ()

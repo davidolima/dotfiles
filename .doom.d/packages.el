@@ -50,5 +50,5 @@
 ;(unpin! t)
 
 
-(package! multiple-cursors)
-(package! lsp-mode)
+;; (package! multiple-cursors)
+;; (package! lsp-mode)
