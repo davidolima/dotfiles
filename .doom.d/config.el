@@ -48,6 +48,15 @@
 ;; (ido-mode 1)
 (dynamic-completion-mode 1)
 ;; (ido-everywhere 1)
+(defun duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (forward-line 1)
+  (yank)
+)
 
 ;; Aparencia
 (setq doom-theme 'doom-dark+)
@@ -68,12 +77,23 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-=") 'text-scale-decrease)
+(global-set-key (kbd "C-d") 'treemacs)
+(global-set-key (kbd "C-M-<down>")  'duplicate-line)
+
+
+;; Magit
+(global-set-key (kbd "C-<m> g") 'magit)
+(global-set-key (kbd "C-<m> s") 'magit-stage-modified)
+(global-set-key (kbd "C-<m> c") 'magit-commit)
+(global-set-key (kbd "C-<m> p") 'magit-push)
+
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
 ;;   (after! PACKAGE
 ;;     (setq x y))
+;;
 ;;
 ;; The exceptions to this rule:
 ;;
