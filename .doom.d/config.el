@@ -34,11 +34,13 @@
 )
 
 ;; Aparencia
-(setq doom-theme 'doom-dark+)
-(setq doom-font (font-spec :family "Hack Nerd Font" :size 15 :weight 'regular))
+(setq doom-theme 'doom-dracula)
+(setq doom-font (font-spec :family "Hack" :size 15 :weight 'regular))
+;;(setq doom-font (font-spec :family "Hack Nerd Font" :size 15 :weight 'regular))
 (setq display-line-numbers-type t)
 (doom/set-frame-opacity 98)
 (tool-bar-mode 0)
+(display-battery-mode 1)
 (scroll-bar-mode 0)
 (column-number-mode 1)
 (show-paren-mode 1)
@@ -56,19 +58,14 @@
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-=") 'text-scale-decrease)
 (global-set-key (kbd "C-z") 'undo)
-(global-set-key (kbd "C-d") 'treemacs)
+(global-set-key (kbd "C-d") '+treemacs/toggle)
 (global-set-key (kbd "C-M-<down>")  'duplicate-line)
+(global-set-key (kbd "C-S-s")  '+default/search-project)
 
-;; Magit
-(global-set-key (kbd "C-<m> g") 'magit)
-(global-set-key (kbd "C-<m> s") 'magit-stage-modified)
-(global-set-key (kbd "C-<m> c") 'magit-commit)
-(global-set-key (kbd "C-<m> p") 'magit-push)
-
-;; Outros
-(global-set-key (kbd "C-d") 'treemacs)
+;; Packages
+(global-set-key (kbd "C-ç g") 'magit)
+(global-set-key (kbd "C-S-d") 'treemacs)
 (global-set-key (kbd "C-,") 'lsp-ui-imenu)
-
 
 
 ;; =========================
