@@ -1,5 +1,5 @@
 configuration {
-modi: "run,filebrowser,calc,window";
+modi: "drun,filebrowser,window,run";
 font: "Hack Nerd Font Mono 10";
 /*	location: 0;*/
 /*	yoffset: 0;*/
@@ -145,4 +145,4 @@ terminal: "alacritty";
       sorting-method:    "name";
   }
 }
-@theme "~/.config/rofi/themes/slate.rasi"
+@theme "/usr/share/rofi/themes/Arc-Dark.rasi"

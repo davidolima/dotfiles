@@ -83,7 +83,6 @@
 (global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
 
 ;; lsp-mode
-(require 'lsp)
 
 (setq gc-cons-threshold 100000000)
 
@@ -92,7 +91,7 @@
   (add-hook 'c++-mode-hook #'lsp)
   (setq lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
 
-  (add-hook 'python-mode-hook #'lsp)
+  (add-hook 'python-mode-hook #'lsp) ; or lsp-deferred
   (add-hook 'rust-mode-hook #'lsp)
   (add-hook 'csharp-mode-hook #'lsp))
 
