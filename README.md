@@ -12,5 +12,3 @@ Repositório de configurações para alguns programas que uso frequentemente.
 ``` shell
 ./instalar_programas.sh
 ```
-
-`

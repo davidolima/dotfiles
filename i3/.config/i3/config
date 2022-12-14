@@ -198,6 +198,7 @@ for_window [class="Blueberry.py"] floating enable
 
 exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always /etc/eww daemon && /etc/eww open bar
 #exec_always --no-startup-id picom --config ~/.config/picom/picom.conf --vsync
 
 # You can also use any non-zero value if you'd like to have a border
