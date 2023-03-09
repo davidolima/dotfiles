@@ -8,12 +8,14 @@ Modified by me (github.com/davidolima)
   border-color: #2e343f;
   text-color: #abb2bf;
   spacing: 0px;
-  width: 512px;
-  height: 512px;
+  width: 25%;
+  height: 30%;
 }
 
 window {
-  border: 1px 1px 1px 1px;
+  border: 1px;
+  border-color: #2e343f;
+//  border-radius: 15px;
 }
 
 inputbar {

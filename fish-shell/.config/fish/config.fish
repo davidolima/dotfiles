@@ -1,10 +1,9 @@
-# greeting
-#fastfetch
-export prog=/tera/home/david/Programming
-export hdhome=/tera/home/david/
-export NNN_PLUG='f:finder;o:fzopen;p:mocplay;d:diffs;t:nmount;v:imgview'
-export PATH="$PATH:/home/david/.dotnet/tools"
-export PATH="$PATH:/home/david/.emacs.d/bin"
+export LC_ALL="C"
+export QT_QPA_PLATFORMTHEME=kde
 
-# aliases
-alias telegram=Telegram
+set chronus 10.131.10.46
+set vermelha 10.131.20.77
+
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+end

@@ -52,3 +52,4 @@
 
 (package! multiple-cursors)
 (package! lsp-mode)
+(package! crux)
