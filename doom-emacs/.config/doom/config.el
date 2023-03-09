@@ -23,15 +23,15 @@
 ;; (ido-mode 1)
 (dynamic-completion-mode 1)
 ;; (ido-everywhere 1)
-(defun duplicate-line()
-  (interactive)
-  (move-beginning-of-line 1)
-  (kill-line)
-  (yank)
-  (open-line 1)
-  (forward-line 1)
-  (yank)
-)
+;; (defun duplicate-line()
+;;   (interactive)
+;;   (move-beginning-of-line 1)
+;;   (kill-line)
+;;   (yank)
+;;   (open-line 1)
+;;   (forward-line 1)
+;;   (yank)
+;; )
 
 ;; Aparencia
 (setq doom-theme 'doom-one)
@@ -52,15 +52,16 @@
 ;; ==================================
 
 ;; Geral
-(global-set-key (kbd "C-;") 'comment-region)
+(global-set-key (kbd "C-;") 'comment-or-uncomment-region)
 (global-set-key (kbd "<f1><f2>") 'compile)
 (global-set-key (kbd "<f2><f1>") 'kill-compilation)
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C-=") 'text-scale-decrease)
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-d") '+treemacs/toggle)
-(global-set-key (kbd "C-M-<down>")  'duplicate-line)
+;;(global-set-key (kbd "C-M-<down>")  'duplicate-line)
 (global-set-key (kbd "C-S-s")  '+default/search-project)
+(global-set-key (kbd "M-<f1>")  'goto-next-locus)
 
 ;; Packages
 (global-set-key (kbd "C-ç g") 'magit)
@@ -82,7 +83,17 @@
 (global-set-key (kbd "C-\"")        'mc/skip-to-next-like-this)
 (global-set-key (kbd "C-:")         'mc/skip-to-previous-like-this)
 
+;; crux
+(require 'crux)
+
+(global-set-key (kbd "C-M-<down>")  'crux-duplicate-current-line-or-region)
+(global-set-key (kbd "C-k")         'crux-smart-kill-line)
+(global-set-key (kbd "C-o")     'crux-smart-open-line)
+(global-set-key (kbd "C-f")         'crux-smart-open-line-above)
+
+
 ;; lsp-mode
+(require 'lsp)
 
 (setq gc-cons-threshold 100000000)
 
@@ -91,7 +102,7 @@
   (add-hook 'c++-mode-hook #'lsp)
   (setq lsp-clients-clangd-args '("-j=4" "-background-index" "-log=error"))
 
-  (add-hook 'python-mode-hook #'lsp) ; or lsp-deferred
+  (add-hook 'python-mode-hook #'lsp)
   (add-hook 'rust-mode-hook #'lsp)
   (add-hook 'csharp-mode-hook #'lsp))
 
