@@ -2,7 +2,8 @@
     border:        none;
     border-radius: 0;
     margin-top: 1.5px;
-    font-family:   Hack Nerd Font;
+    font-family:   SauceCodePro Nerd Font;
+    font-weight: 500;
     font-size:     15px;
     box-shadow:    none;
     text-shadow:   none;
@@ -25,7 +26,7 @@ window#waybar.solo {
 
 #workspaces button {
     padding:    0 5px;
-    color:      rgba(217, 216, 216, 0.4);
+    color:      rgba(216, 216, 216, 0.4);
 }
 
 #workspaces button.visible {
@@ -42,14 +43,26 @@ window#waybar.solo {
     color:      rgba(238, 46, 36, 1);
 }
 
-#mode, #battery, #cpu, #memory, #network, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail {
-    margin:     0px 6px 0px 10px;
+#mode, #cpu, #memory, #pulseaudio, #idle_inhibitor, #backlight, #custom-storage, #custom-spotify, #custom-weather, #custom-mail {
+    margin:     0px 10px 0px 6px;
+    min-width:  25px;
+}
+
+#battery {
+    margin:     0px 6px 0px 0px;
+    min-width:  25px;
+}
+
+#network {
+    margin:     0px 10px 0px 3px;
     min-width:  25px;
 }
 
 #clock {
     margin:     0px 16px 0px 10px;
     min-width:  140px;
+    font-size: 16px;
+    font-stretch: extra-condensed;
 }
 
 #battery.warning {

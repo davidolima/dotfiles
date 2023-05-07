@@ -1,12 +1,12 @@
 {
-    "layer": "bottom",
+    "layer": "top",
     "position": "top",
     "height": 20,
     "ipc": true,
 
     "modules-left": ["wlr/workspaces", "tray"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/spotify", "memory", "cpu", "pulseaudio", "battery", "network"],
+    "modules-right": ["custom/spotify", "memory", "cpu", "battery", "network"],
     "wlr/workspaces": {
         "format": "{name}",
         "disable-scroll": true
@@ -22,26 +22,29 @@
     "battery": {
         "format": " {icon} {capacity}%",
         "format-alt": "{icon} {time}",
-        "format-icons": ["", "", "", "", ""],
-        "format-charging": " {capacity}%",
+        "format-icons": ["󰂎","󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "format-charging": "󱐋{icon} {capacity}%",
         "interval": 30,
         "states": {
             "warning": 25,
             "critical": 15
         },
-        "tooltip": false
+        "tooltip": true,
+        "tooltip-format": "Tempo restante: {time}"
     },
     "network": {
+        "max-length": 10,
         "format": "{icon}",
-        "format-alt": "{ipaddr} {icon}",
-        "format-alt-click": "click-right",
-        "format-icons": {
-            "wifi": ["", "" ,""],
-            "ethernet": [""],
-            "disconnected": [""]
-        },
         "on-click": "alacritty -e nmtui",
-    "tooltip": true
+        "format-icons": {
+            //"wifi": ["", "" ,""],
+            //"disconnected": [""]
+            "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
+            "ethernet": ["󰈁"],
+            "disconnected": ["󰕑"]
+        },
+        "tooltip": true,
+        "tooltip-format": "ssid: {essid} ip: {ipaddr}",
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -76,12 +79,12 @@
     },
     "memory": {
         "interval": 10,
-        "format": " {}%",
+        "format": "󱗼 {}%",
         "tooltip": true
     },
     "cpu": {
         "interval": 10,
-        "format": "{usage}% זּ",
+        "format": "󰍛 {usage}%",
         "max-lenght": 10,
         "tooltip": true
     }
