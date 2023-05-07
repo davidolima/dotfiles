@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: prova
+# uuid: newprova
+# key: M-p
+# condition: t
+# --
+\underline{\textbf{Base:}}\\
+\[\]
+\underline{\textbf{Hipótese:}}\\
+\[\]
+\underline{\textbf{Passo Indutivo:}}\\
+\[\]

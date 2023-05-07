@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: main func
+# uuid: mfunc
+# key: mfunc
+# condition: t
+# --
+
+#include <iostream>
+
+int main(){
+  return 0;
+}
