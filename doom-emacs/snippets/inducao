@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: inducao 
+# uuid: inducao
+# key: 
+# condition: t
+# --
+\underline{\textbf{Base:}}\\
+\[\]
+\underline{\textbf{Hipótese:}}\\
+\[\]
+\underline{\textbf{Passo Indutivo:}}\\
+\[\]

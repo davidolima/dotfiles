@@ -22,6 +22,7 @@
 (cua-mode 1)
 (evil-mode 0)
 (dynamic-completion-mode 1)
+(compilation-shell-minor-mode 1)
 ;(ido-mode 1)
 ;(ido-everywhere 1)
 ;; (defun duplicate-line()
@@ -35,9 +36,9 @@
 ;; )
 
 ;; Aparencia
-(setq doom-theme 'doom-one)
+(setq doom-theme 'doom-moonlight)
 ;;(setq doom-font (font-spec :family "Hack" :size 15 :weight 'regular))
-(setq doom-font (font-spec :family "Hack Nerd Font" :size 15 :weight 'regular))
+(setq doom-font (font-spec :family "SauceCodePro Nerd Font Mono" :size 15 :weight 'regular))
 (setq display-line-numbers-type t)
 (doom/set-frame-opacity 98)
 (tool-bar-mode 0)
@@ -45,6 +46,9 @@
 (scroll-bar-mode 0)
 (column-number-mode 1)
 (show-paren-mode 1)
+(global-subword-mode 1)
+(delete-selection-mode 1)
+(setq cursor-type 'bar)
 (setq-default cursor-type 'bar)
 
 
@@ -56,8 +60,8 @@
 (global-set-key (kbd "C-;")          'comment-or-uncomment-region)
 (global-set-key (kbd "<f1><f2>")     'compile)
 (global-set-key (kbd "<f2><f1>")     'kill-compilation)
-(global-set-key (kbd "C-+")         'text-scale-increase)
-(global-set-key (kbd "C-=")         'text-scale-decrease) ; Melhor usar C-x C-0
+(global-set-key (kbd "C-=")          'text-scale-increase)
+(global-set-key (kbd "C--")          'text-scale-decrease) ; Melhor usar C-x C-0
 (global-set-key (kbd "C-z")          'undo)
 (global-set-key (kbd "C-d")          '+treemacs/toggle)
 ;;(global-set-key (kbd "C-M-<down>") 'duplicate-line)
@@ -66,6 +70,12 @@
 (global-set-key (kbd "M-#")          'mark-sexp)
 (global-set-key (kbd "M-n")          'align-regexp)
 (global-set-key (kbd "C-)")          'doom/kill-all-buffers)
+(global-set-key (kbd "C-S-t w")      'visual-line-mode)
+(global-set-key (kbd "C-S-t r")      'align-regexp)
+(global-set-key (kbd "C-S-t a")      'align)
+(global-set-key (kbd "C-S-z")        'undo-redo)
+(global-set-key (kbd "M-[")        'evil-numbers/inc-at-pt-incremental)
+(global-set-key (kbd "M-]")        'evil-numbers/dec-at-pt-incremental)
 
 ;; Packages
 (global-set-key (kbd "C-ç g")        'magit)
@@ -73,9 +83,9 @@
 (global-set-key (kbd "C-,")          'lsp-ui-imenu)
 
 ;; Mode-specific
-(add-hook 'tex-mode-hook
-  (lambda ()
-   (local-set-key (kbd "M-p") 'latex-preview-pane-mode)))
+(add-hook 'LaTeX-mode-hook 'latex-preview-pane-mode)
+(add-hook 'latex-mode-hook 'latex-preview-pane-mode)
+(add-hook 'tex-mode-hook 'latex-preview-pane-mode)
 
 ;; =========================
 ;;         PACOTES

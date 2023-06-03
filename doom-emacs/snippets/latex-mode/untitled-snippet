@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: inducao
+# uuid: inducao
+# key: trigger-key
+# condition: t
+# --
+\textbf{\underline{Base:}}
+\textbf{\underline{Passo de indução:}}
