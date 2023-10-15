@@ -90,6 +90,7 @@ window#waybar.solo {
 #custom-mail,
 #battery
 {
+    background: rgba(0,0,0,0);
     margin:     0px 10px 0px 2px;
     min-width:  25px;
 }
