@@ -1,30 +1,70 @@
 {
+    "bar_id": "bar-0",
     "layer": "top",
     "position": "top",
     "height": 20,
     "ipc": true,
 
-    "modules-left": ["wlr/workspaces", "tray"],
+    "modules-left": ["sway/workspaces", "tray"],
     "modules-center": ["clock"],
-    "modules-right": ["custom/spotify", "memory", "cpu", "battery", "network"],
-    "wlr/workspaces": {
+    "modules-right": ["custom/spotify","bluetooth", "memory", "cpu", "battery", "network"],
+    "sway/workspaces": {
         "format": "{name}",
+        "on-click": "activate",
         "disable-scroll": true
     },
-    "wlr/taskbar": {
+    "sway/taskbar": {
         "tooltip": true
+    },
+    "bluetooth":{
+        "format-disabled": "",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱",
+        "tooltip": true,
+        "tooltip-format-enumerate-connected": " - {device_alias}",
+        "tooltip-format-enumerate-connected-battery": " - {device_alias}: {device_battery_percentage}%",
+        "tooltip-format-connected": "[{status}] {num_connections} device connected.\n{device_enumerate}",
+        "tooltip-format-on": "[{status}] No device connected.",
+        "on-click": "blueberry",
+        "on-click-right": "bluetooth disconnect"
     },
     "clock": {
         "format": "{:%H:%M - %a, %d %b}",
-        "format-alt": "{:%H:%M}",
-        "tooltip": false
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "",
+                    "on-scroll"     : 1,
+                    "on-click": "mode",
+                    "format": {
+                              "months":     "<span color='#d19a66'><b>{}</b></span>",
+                              "days":       "<span color='#e6efff'>{}</span>",
+                              "weeks":      "<span color='#99ffdd'>W{}</span>",
+                              "weekdays":   "<span color='#d19a66'>{}</span>",
+                              "today":      "<span color='#98c379'><b>{}</b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click": "mode",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+    "clock#time": {
+        "format": "{:%H:%M}"
+    },
+    "clock#date": {
+        "format": "{:%a, %d %b}"
     },
     "battery": {
-        "format": " {icon} {capacity}%",
+        "format": "{icon} {capacity}%",
         "format-alt": "{icon} {time}",
         "format-icons": ["󰂎","󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
         "format-charging": "󱐋{icon} {capacity}%",
-        "interval": 30,
+        "interval": 10,
         "states": {
             "warning": 25,
             "critical": 15
@@ -35,12 +75,13 @@
     "network": {
         "max-length": 10,
         "format": "{icon}",
+        //"format-alt": "{essid} {icon}",
         "on-click": "alacritty -e nmtui",
         "format-icons": {
             //"wifi": ["", "" ,""],
             //"disconnected": [""]
             "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
-            "ethernet": ["󰈁"],
+            "ethernet": [""],
             "disconnected": ["󰕑"]
         },
         "tooltip": true,
@@ -78,12 +119,12 @@
         "icon-size": 18
     },
     "memory": {
-        "interval": 10,
+        "interval": 5,
         "format": "󱗼 {}%",
         "tooltip": true
     },
     "cpu": {
-        "interval": 10,
+        "interval": 5,
         "format": "󰍛 {usage}%",
         "max-lenght": 10,
         "tooltip": true

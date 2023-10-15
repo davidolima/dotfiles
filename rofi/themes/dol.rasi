@@ -8,7 +8,7 @@ Modified by me (github.com/davidolima)
   border-color: #2e343f;
   text-color: #abb2bf;
   spacing: 0px;
-  width: 25%;
+  width: 32%;
   height: 30%;
 }
 

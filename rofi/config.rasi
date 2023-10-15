@@ -145,4 +145,4 @@ terminal: "alacritty";
       sorting-method:    "name";
   }
 }
-@theme "~/.config/rofi/themes/dol.rasi"
+@theme "~/.config/rofi/themes/dol2.rasi"

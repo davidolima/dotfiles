@@ -1,0 +1,21 @@
+{
+    "label" : "logout",
+    "action" : "hyprctl dispatch exit",
+    "text" : "Logout [L]",
+    "keybind" : "l",
+    "circular": true
+}
+{
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Shutdown [S]",
+    "keybind" : "s",
+    "circular": true
+}
+{
+    "label" : "reboot",
+    "action" : "systemctl reboot",
+    "text" : "Reboot [R]",
+    "keybind" : "r",
+    "circular": true
+}

@@ -1,35 +1,41 @@
-#!/bin/bash
-#
-# Copyright (C) 2013 by Massimo Lauria
-#
-# Created : "2013-04-17, Wednesday 17:55 (CEST) Massimo Lauria"
-# Time-stamp: "2013-04-17, 18:22 (CEST) Massimo Lauria"
-#
-# Description::
-#
-# Desktop search tool built around recoll and dmenu
-# http://blog.desdelinux.net/como-buscar-archivos-a-texto-completo-en-distros-linux-livianas/
-#
-# Configuration
-QUERY_TOOL="recoll -b -t"
-PROMPT_THEME='-nf #dcdcdc -nb #2f2f2f -sb #a6c292 -sf black'
+#!/usr/bin/env bash
 
-# Code::
-
-# Use argument or query interactively.
-if [ -z "$@" ]; then
-	QUERY=`dmenu $PROMPT_THEME -p "Chercher:" </dev/null`
+#PUT THIS FILE IN ~/.local/share/rofi/finder.sh
+#USE: rofi  -show find -modi find:~/.local/share/rofi/finder.sh
+if [ ! -z "$@" ]
+then
+  QUERY=$@
+  if [[ "$@" == /* ]]
+  then
+    if [[ "$@" == *\?\? ]]
+    then
+      xdg-open "${QUERY%\/* \?\?}"  > /dev/null 2>&1
+      exec 1>&-
+      exit;
+    else
+      xdg-open "$@"  > /dev/null 2>&1
+      exec 1>&-
+      exit;
+    fi
+  elif [[ "$@" == \!\!* ]]
+  then
+    echo "!!-- Type your search query to find files"
+    echo "!!-- To search again type !<search_query>"
+    echo "!!-- To search parent directories type ?<search_query>"
+    echo "!!-- You can print this help by typing !!"
+  elif [[ "$@" == \?* ]]
+  then
+    echo "!!-- Type another search query"
+    while read -r line; do
+      echo "$line" \?\?
+    done <<< $(find ~ -type d -path '*/\.*' -prune -o -not -name '.*' -type f -iname *"${QUERY#\?}"* -print)
+  else
+    echo "!!-- Type another search query"
+    find ~ -type d -path '*/\.*' -prune -o -not -name '.*' -type f -iname *"${QUERY#!}"* -print
+  fi
 else
-	QUERY="$@"
-fi
-
-DOC=$($QUERY_TOOL "$QUERY" | grep 'file://' \
-    | sed -e 's|^ *file://||' | sed -e "s|$HOME/||" \
-    | perl -e 'use URI::Escape; print uri_unescape(<STDIN>);' \
-    | dmenu -p 'Choisir:' \
-    -i $PROMPT_THEME -l 20)
-
-
-if [ "x$DOC" != x ]; then
-	mimeopen "$HOME/$DOC"
+  echo "!!-- Type your search query to find files"
+  echo "!!-- To seach again type !<search_query>"
+  echo "!!-- To seach parent directories type ?<search_query>"
+  echo "!!-- You can print this help by typing !!"
 fi

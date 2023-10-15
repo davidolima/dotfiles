@@ -1,5 +1,5 @@
 # Dot Files
-Repositório de configurações para alguns programas que uso frequentemente. Esta branch possui meus arquivos de configuração para o wm Hyprland.
+Repositório de configurações para alguns programas que uso frequentemente. Esta branch possui meus arquivos de configuração para o Swaywm.
 
 ## Atualizar arquivos de configuração 
 
