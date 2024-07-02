@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: lbegin
+# uuid: lbegin
+# key: lbegin
+# condition: t
+# --
+\begin{$1}
+\end{$1}

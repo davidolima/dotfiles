@@ -49,5 +49,8 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
+
+(package! multiple-cursors)
 (package! crux)
-(package! gnuplot)
+;(package! lsp-pyright)
+(package! csv-mode)

@@ -15,14 +15,19 @@
 (setq user-full-name    "David Lima"
       user-mail-address "dipias2002@gmail.com")
 
-(setq read-process-output-max (* 1024 1024))
+;(setq read-process-output-max (* 1024 1024))
 (setq org-directory "~/org/")
 
 ;; Funcionalidade
-(cua-mode 1)
-(evil-mode 0)
-(dynamic-completion-mode 1)
+(cua-mode 0)
+;(evil-mode 0)
+(pixel-scroll-precision-mode 1)
+;(dynamic-completion-mode 1)
 (compilation-shell-minor-mode 1)
+(setq shell-file-name (executable-find "bash"))
+(setq-default vterm-shell (executable-find "fish"))
+(setq-default explicit-shell-file-name (executable-find "fish"))
+
 ;(ido-mode 1)
 ;(ido-everywhere 1)
 ;; (defun duplicate-line()
@@ -36,7 +41,7 @@
 ;; )
 
 ;; Aparencia
-(setq doom-theme 'doom-moonlight)
+(setq doom-theme 'doom-horizon)
 ;;(setq doom-font (font-spec :family "Hack" :size 15 :weight 'regular))
 (setq doom-font (font-spec :family "SauceCodePro Nerd Font Mono" :size 15 :weight 'regular))
 (setq display-line-numbers-type t)
@@ -46,17 +51,23 @@
 (scroll-bar-mode 0)
 (column-number-mode 1)
 (show-paren-mode 1)
-(global-subword-mode 1)
+;(global-subword-mode 1)
 (delete-selection-mode 1)
 (setq cursor-type 'bar)
 (setq-default cursor-type 'bar)
 
+(setq shell-file-name (executable-find "bash"))
+(setq-default vterm-shell (executable-find "fish"))
+(setq-default explicit-shell-file-name (executable-find "fish"))
 
 ;; ==================================
 ;;  Atalhos de Teclado / Keybindings
 ;; ==================================
 
 ;; Geral
+;(global-set-key (kbd "C-c")            'doom-leader-alt-key)
+;(global-set-key (kbd "C-c-l")          'doom-localleader-alt-key)
+
 (global-set-key (kbd "C-;")          'comment-or-uncomment-region)
 (global-set-key (kbd "<f1><f2>")     'compile)
 (global-set-key (kbd "<f2><f1>")     'kill-compilation)
@@ -70,9 +81,10 @@
 (global-set-key (kbd "M-#")          'mark-sexp)
 (global-set-key (kbd "M-n")          'align-regexp)
 (global-set-key (kbd "C-)")          'doom/kill-all-buffers)
-(global-set-key (kbd "C-S-t w")      'visual-line-mode)
-(global-set-key (kbd "C-S-t r")      'align-regexp)
-(global-set-key (kbd "C-S-t a")      'align)
+(global-set-key (kbd "C-x C-b")      'ibuffer)
+;; (global-set-key (kbd "C-S-t w")      'visual-line-mode)
+;; (global-set-key (kbd "C-S-t r")      'align-regexp)
+;; (global-set-key (kbd "C-S-t a")      'align)
 (global-set-key (kbd "C-S-z")        'undo-redo)
 (global-set-key (kbd "M-[")        'evil-numbers/inc-at-pt-incremental)
 (global-set-key (kbd "M-]")        'evil-numbers/dec-at-pt-incremental)
@@ -126,6 +138,14 @@
   :hook (python-mode . (lambda()
                          (require 'lsp-pyright)
                          (lsp))))
+
+(use-package pyvenv
+  :ensure t
+  :defer t
+  :diminish
+  :config
+  (setenv "WORKON_HOME" "~/anaconda3/envs")
+  (pyvenv-mode t))
 
 ;; (use-package! lsp-mode
 ;;   :config

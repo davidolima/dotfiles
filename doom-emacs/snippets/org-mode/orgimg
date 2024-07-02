@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: orgimg
+# key: orgimg
+# --
+
+#+NAME: $1
+#+CAPTION: $2
+#+ATTR_LATEX: :center t :placement [t] :width 0.8\textwidth
+[[$3]]
