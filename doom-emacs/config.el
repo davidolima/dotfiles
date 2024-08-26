@@ -45,7 +45,8 @@
 ;;(setq doom-font (font-spec :family "Hack" :size 15 :weight 'regular))
 (setq doom-font (font-spec :family "SauceCodePro Nerd Font Mono" :size 15 :weight 'regular))
 (setq display-line-numbers-type t)
-(doom/set-frame-opacity 98)
+(setq display-line-numbers 'relative) ; Relative line numbers
+;(doom/set-frame-opacity 98)
 (tool-bar-mode 0)
 ;(display-battery-mode 1)
 (scroll-bar-mode 0)
@@ -95,9 +96,11 @@
 (global-set-key (kbd "C-,")          'lsp-ui-imenu)
 
 ;; Mode-specific
-(add-hook 'LaTeX-mode-hook 'latex-preview-pane-mode)
-(add-hook 'latex-mode-hook 'latex-preview-pane-mode)
-(add-hook 'tex-mode-hook 'latex-preview-pane-mode)
+(latex-preview-pane-enable)
+(setq +latex-viewers '(pdf-tools))
+;(add-hook 'LaTeX-mode-hook 'latex-preview-pane-mode)
+;(add-hook 'latex-mode-hook 'latex-preview-pane-mode)
+;(add-hook 'tex-mode-hook 'latex-preview-pane-mode)
 
 ;; =========================
 ;;         PACOTES
